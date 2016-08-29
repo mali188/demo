@@ -1,11 +1,11 @@
 <?php
 
 /**
- * [get_hash_table mysql 分表算法   根据用户ID进行分表]
+ * [get_hash_table mysql 鍒嗚〃绠楁硶   鏍规嵁鐢ㄦ埛ID杩涜鍒嗚〃]
  * @Author   malixiao
  * @DateTime 2016-08-29T13:22:22+0800
- * @param    [type]                   $table  [表名]
- * @param    [type]                   $userid [用户ID]
+ * @param    [type]                   $table  [琛ㄥ悕]
+ * @param    [type]                   $userid [鐢ㄦ埛ID]
  * @return   [type]                           [description]
  */
 function get_hash_table($table,$userid) {  
@@ -18,7 +18,7 @@ function get_hash_table($table,$userid) {
 	}  
 	return $table."_".$hash;  
 
-}  
+}
   
-echo get_hash_table('message','1');     //结果为message_10  
-echo get_hash_table('message','2');    //结果为message_13  
+echo get_hash_table('message','1');     //缁撴灉涓簃essage_10  
+echo get_hash_table('message','2');    //缁撴灉涓簃essage_13  

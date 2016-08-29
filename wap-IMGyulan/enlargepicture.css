@@ -1,0 +1,23 @@
+.enlarge-blackground{
+	background-color: #000 !important;
+	position: fixed;
+	top:0;left: 100%;overflow: hidden;
+	z-index: 99999;width: 100%;
+}
+.enlarge-img-box{
+	margin: 0;
+	position: absolute;
+	width: 1999px;
+}
+.enlarge-div{float: left;}
+.enlarge-number-tips{width:40px;
+	height:30px;
+	background-color:#555;
+	background-clip:padding-box;
+	border-radius: 50%;position: absolute;
+	line-height: 30px;text-align: center;
+	letter-spacing:-2px;
+	right: 20px;top:20px;
+	color: #f8f8f8;
+}
+.enlarge-number-tips-allnumber{font-size: 0.8em;}
