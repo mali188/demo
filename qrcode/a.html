@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>生成带有logo的二维码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--此处需要引入三个JS文件
+  一、jquery-1.8.2.js 
+  二、excanvas.js
+  三、qrcode.js
+  顺序要注意，不能乱了顺序；
+-->
+<script src="jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="excanvas.js"></script>
+<script src="qrcode.js"></script>
+<script type="text/javascript">
+$(function() {
+    $("#bt").bind("click",
+        function() {
+            var text = $("#text").val();
+            $('#div_div').qrcode({
+                render: 'canvas',
+                text: utf16to8('http://baidu.com'),
+                height: 200,
+                width: 200,
+                //logo图片地址
+                src: 'a.jpg'
+            });
+        }
+    );
+});
+ 
+function utf16to8(str) { //转码
+    var out, i, len, c;
+    out = "";
+    len = str.length;
+    for (i = 0; i < len; i++) {
+        c = str.charCodeAt(i);
+        if ((c >= 0x0001) && (c <= 0x007F)) {
+            out += str.charAt(i);
+        } else if (c > 0x07FF) {
+            out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+            out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+            out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+        } else {
+            out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+            out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+        }
+    }
+    return out;
+}
+</script>
+ 
+</head>
+<body>
+<input type="text" id="text" />
+<input type="button" value="生成二维码" id="bt" />
+<div id="div_div">
+  <div id="qr_container" style="margin:auto; position:relative;">
+       
+  </div>
+</div>
+ 
+</body>
+</html>
